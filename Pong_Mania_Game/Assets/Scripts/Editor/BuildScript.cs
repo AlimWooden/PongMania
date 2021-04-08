@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEditor;
 
-public class BuildScript : MonoBehaviour
+public class BuildScript
 {
     // Start is called before the first frame update
-    void Start()
+    static void PerformBuild()
     {
-        // Adding Random Comment
+        string[] defaultScene = { "Assets/Scenes/MainScene.unity" };
+        BuildPipeline.BuildPlayer(defaultScene, "./builds/game.x86_64",
+            BuildTarget.StandaloneWindows, BuildOptions.None);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
